@@ -1,78 +1,63 @@
-/* Layout da Grade */
-.grid-body {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 7 colunas para os dias */
-  background-color: #ddd;
-  gap: 1px; /* Cria as linhas divisórias */
-  border: 1px solid #ddd;
-}
-
-.grid-header {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  font-weight: bold;
-  background-color: #f4f4f4;
-  padding: 10px 0;
-}
-
+/* Navegação: [<] Janeiro 2026 [>] */
 .calendar-header {
-  display: flex;
-  justify-content: space-between; /* Botões nas pontas, título no meio */
-  align-items: center;
-  padding: 20px 10px;
-  background-color: #ffffff;
-  border-bottom: 2px solid #f0f0f0;
-  margin-bottom: 10px;
-}
-
-.month-display {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #333;
-  margin: 0;
-  text-transform: capitalize; /* Garante o mês com letra maiúscula */
-}
-
-.nav-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%; /* Botões circulares */
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
 }
 
-.nav-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.1); /* Efeito de leve aumento ao passar o mouse */
+.month-display {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  min-width: 200px;
+  margin: 0;
 }
 
-.nav-button:active {
-  transform: scale(0.95);
+/* NOMES DA SEMANA: Força a exibição horizontal em 7 colunas */
+.grid-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  text-align: center;
+  font-weight: bold;
+  padding: 12px 0;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  color: #444;
 }
 
-/* Células */
+/* GRADE DE NÚMEROS: Organiza os dias em 7 colunas */
+.grid-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #ddd; /* Cria a cor das linhas entre os dias */
+  gap: 1px;
+  border: 1px solid #ddd;
+}
+
+/* CÉLULAS: Centraliza os números perfeitamente */
 .day-cell {
   background-color: #fff;
-  min-height: 100px;
-  padding: 10px;
+  min-height: 65px; /* Altura compacta */
   display: flex;
-  flex-direction: column;
+  justify-content: center; /* Centraliza horizontal */
+  align-items: center;     /* Centraliza vertical */
 }
 
+.day-number {
+  font-size: 1.05rem;
+  color: #333;
+}
+
+/* Destaque para o dia atual */
 .day-cell.today {
   background-color: #e7f1ff;
+  color: var(--primary);
   font-weight: bold;
-  color: #007bff;
 }
 
 .day-cell.empty {
-  background-color: #fafafa;
+  background-color: #fcfcfc;
 }
